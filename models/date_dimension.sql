@@ -51,7 +51,13 @@ THEN 'SPRING'
 WHEN  MONTH(TO_TIMESTAMP(STARTED_AT)) IN (6,7,8)
 THEN 'SUMMER'
 ELSE 'AUTOMN'
-END AS STATION_OF_YEAR
+END AS STATION_OF_YEAR,
+
+{{function1('STARTED_AT')}},
+
+{{get_season('STARTED_AT')}} AS SEASON_OF_YEAR,
+
+{{day_type('STARTED_AT')}} AS DAY_TYPE2
 
 
 FROM {{ source('demo', 'bike') }}
