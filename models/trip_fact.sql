@@ -12,12 +12,11 @@ MEMBER_CASUAL,
 -- TO_TIMESTAMP(ENDED_AT) - TO_TIMESTAMP(STARTED_AT),
 TIMESTAMPDIFF(SECOND,TO_TIMESTAMP(STARTED_AT),TO_TIMESTAMP(ENDED_AT)) AS TRIP_DURATION_SECONDS
 
-FROM {{ source('demo', 'bike') }}
+FROM {{ ref('stg_bike') }}
 
 WHERE RIDE_ID != 'ride_id'
 
 -- limit 10
-
 )
 
 select * from TRIPS
