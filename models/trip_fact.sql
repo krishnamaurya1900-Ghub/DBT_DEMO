@@ -4,7 +4,7 @@ WITH TRIPS AS (
 SELECT
 
 RIDE_ID,
-RIDEABLE_TYPE,
+-- RIDEABLE_TYPE,
 DATE(TO_TIMESTAMP(STARTED_AT)) AS TRIP_DATE,
 START_STATION_ID,
 END_STATION_ID,
@@ -16,7 +16,7 @@ FROM {{ source('demo', 'bike') }}
 
 WHERE RIDE_ID != 'ride_id'
 
-limit 10
+-- limit 10
 
 )
 

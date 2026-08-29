@@ -60,7 +60,7 @@ END AS STATION_OF_YEAR,
 {{day_type('STARTED_AT')}} AS DAY_TYPE2
 
 
-FROM {{ source('demo', 'bike') }}
+FROM {{ ref('stg_bike') }}
 WHERE STARTED_AT != 'started_at'
 )
 

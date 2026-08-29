@@ -9,11 +9,11 @@ start_station_name AS station_name,
 start_lat AS start_lat,
 start_lng AS start_lng
 
-FROM {{ source('demo', 'bike') }}
+FROM {{ ref('stg_bike') }}
 
 WHERE RIDE_ID != 'ride_id'
 
-limit 10
+-- limit 10
 
 )
 
